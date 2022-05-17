@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservices-order-services-app
+spec:
+  selector:
+    matchLabels:
+      app: microservices-order-services-app
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: microservices-order-services-app
+    spec:
+      containers:
+      - name: microservices-order-services-app
+        image: rosywijewardhana/node
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
